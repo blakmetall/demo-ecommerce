@@ -1,12 +1,16 @@
 import { StyledCard, StyledName, StyledDescription, StyledPrice, StyledPhoto } from './styled';
 
-function ProductCard({ id, name, description, price, photo, onSelect }) {
+function ProductCard(props) {
+  const { id, name, description, price, photo, onProductClick } = props;
+
   return (
-    <StyledCard onClick={onSelect}>
-      <StyledPhoto src={photo} />
-      <StyledName>{name}</StyledName>
-      <StyledDescription>{description}</StyledDescription>
-      <StyledPrice> ${price.toFixed(2)}</StyledPrice>
+    <StyledCard>
+      <div onClick={event => onProductClick(id, event)}>
+        <StyledPhoto src={photo} />
+        <StyledName>{name}</StyledName>
+        <StyledDescription>{description}</StyledDescription>
+        <StyledPrice> ${price.toFixed(2)}</StyledPrice>
+      </div>
     </StyledCard>
   );
 }

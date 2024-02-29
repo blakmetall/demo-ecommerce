@@ -5,7 +5,7 @@ export interface CartSliceProps {
 }
 
 const initialState: CartSliceProps = {
-  productsIds: [],
+  productsIds: [1, 3, 5],
 };
 
 export const cartSlice = createSlice({

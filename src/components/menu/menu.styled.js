@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
     background: #fff;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
     margin-right: 30px;
     text-decoration: none;
     color: #03b6f5;

@@ -5,8 +5,9 @@ export const MenuComponent = () => {
     <StyledContainer>
       <StyledMenuContainer>
         <StyledMenuItems>
-          <StyledLink href="">Cart</StyledLink>
-          <StyledLink href="">Add Product</StyledLink>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="cart">Cart</StyledLink>
+          <StyledLink to="add-product">Add Product</StyledLink>
         </StyledMenuItems>
         <StyledSearchContainer>
           <StyledSearchInput />
