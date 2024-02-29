@@ -1,10 +1,12 @@
-import { StyledContainer } from './styled';
+import { StyledContainer, StyledMain } from './styled';
 
 function Layout({ children }) {
   return (
-    <StyledContainer>
-      {children}
-    </StyledContainer>
+    <StyledMain>
+      <StyledContainer>
+        {children}
+      </StyledContainer>
+    </StyledMain>
   );
 }
 
