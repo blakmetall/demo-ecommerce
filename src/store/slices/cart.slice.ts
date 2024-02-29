@@ -19,7 +19,7 @@ export const cartSlice = createSlice({
       ];
     },
     removeProductFromCart: (state, action) => {
-      state.productsIds = state.productsIds.filter(productId => productId != action.payload);
+      state.productsIds = state.productsIds.filter(productId => productId !== action.payload);
     },
   },
 });
