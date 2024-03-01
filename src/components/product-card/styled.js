@@ -25,6 +25,7 @@ const StyledPrice = styled.div`
     color: #03b6f5;
     font-size: 16px;
     font-weight: bold;
+    margin-bottom: 15px;
 `;
 
 const StyledPhoto = styled.img`

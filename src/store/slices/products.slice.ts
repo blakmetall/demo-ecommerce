@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface ProductProps {
+  description?: string;
   id: number;
   name: string;
-  price: number;
-  description?: string;
   photo?: string;
+  price: number;
+  quantity?: number;
 }
 
 interface ProductsSliceProps {
