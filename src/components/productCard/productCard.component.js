@@ -19,7 +19,7 @@ function ProductCard(props) {
         <StyledPhoto src={photo} alt='' />
         <StyledName>{name}</StyledName>
         <StyledDescription>{description}</StyledDescription>
-        <StyledPrice> ${price.toFixed(2)}</StyledPrice>
+        <StyledPrice>${price.toFixed(2)}</StyledPrice>
 
         <AddToCart 
           currentQuantity={currentQuantity} 

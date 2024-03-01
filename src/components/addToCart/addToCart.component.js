@@ -1,4 +1,4 @@
-import { StyledContainer, StyledQuantityContainer, StyledQuantityInput } from './addToCart.styled.js';
+import { StyledContainer, StyledQuantityInput } from './addToCart.styled.js';
 
 export const AddToCart = ({ currentQuantity = 0, onUpdateQuantity, productId }) => {
   const handleOnClick = (event, newQuantity) => {
@@ -11,12 +11,10 @@ export const AddToCart = ({ currentQuantity = 0, onUpdateQuantity, productId }) 
   }
 
   return (
-    <StyledContainer onClick={handleOnClick}>
+    <StyledContainer>
       <button onClick={(event) => handleOnClick(event, currentQuantity - 1)}>-</button>
 
-      <StyledQuantityContainer>
-        <StyledQuantityInput value={currentQuantity} readonly />
-      </StyledQuantityContainer>
+      <StyledQuantityInput value={currentQuantity} readOnly />
 
       <button onClick={(event) => handleOnClick(event, currentQuantity + 1)}>+</button>
     </StyledContainer>
