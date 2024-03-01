@@ -12,13 +12,13 @@ export const AddToCartComponent = ({ currentQuantity = 0, onUpdateQuantity, prod
 
   return (
     <StyledContainer onClick={handleOnClick}>
-      <button onClick={(event) => handleOnClick(event, currentQuantity + 1)}>+</button>
+      <button onClick={(event) => handleOnClick(event, currentQuantity - 1)}>-</button>
 
       <StyledQuantityContainer>
         <StyledQuantityInput value={currentQuantity} readonly />
       </StyledQuantityContainer>
 
-      <button onClick={(event) => handleOnClick(event, currentQuantity - 1)}>-</button>
+      <button onClick={(event) => handleOnClick(event, currentQuantity + 1)}>+</button>
     </StyledContainer>
   )
 };

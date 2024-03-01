@@ -14,6 +14,7 @@ const StyledQuantityContainer = styled(Link)`
 `;
 
 const StyledQuantityInput = styled.input`
+    text-align: center;
     max-width: 80px;
 `;
 
