@@ -3,6 +3,10 @@ import styled from 'styled-components';
 const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledDescription = styled.div`
@@ -14,6 +18,11 @@ const StyledImage = styled.img`
   border-radius: 10px;
   width: 100%;
   max-width: 600px;
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+    max-width: 100%;
+  }
 `;
 
 const StyledName = styled.div`

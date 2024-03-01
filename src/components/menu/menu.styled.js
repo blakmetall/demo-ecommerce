@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   background: #fff;
+  padding: 0 30px;
 `;
 
 const StyledLink = styled(Link)`
@@ -17,8 +18,12 @@ const StyledMenuContainer = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1100px;
-  padding: 20px 0 20px 10px;
+  padding: 20px 0;
   width: 100%;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledMenuItems = styled.div`
@@ -26,10 +31,26 @@ const StyledMenuItems = styled.div`
 `;
 
 const StyledSearchContainer = styled.div`
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+  }
 `;
 
 const StyledSearchInput = styled.input`
   margin-left: 10px;
+
+  @media (max-width: 767px) {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+`;
+
+const StyledSelect = styled.select`
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export { 
@@ -39,4 +60,5 @@ export {
   StyledMenuItems, 
   StyledSearchContainer, 
   StyledSearchInput,
+  StyledSelect,
  };

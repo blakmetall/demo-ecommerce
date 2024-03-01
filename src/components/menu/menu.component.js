@@ -6,6 +6,7 @@ import {
   StyledMenuItems, 
   StyledSearchContainer, 
   StyledSearchInput,
+  StyledSelect,
 } from './menu.styled.js';
 
 export const Menu = ({ filter, search, onFilterChange, onSearchChange }) => {
@@ -23,14 +24,14 @@ export const Menu = ({ filter, search, onFilterChange, onSearchChange }) => {
 
         {isHomepage ? (
           <StyledSearchContainer>
-            <select 
+            <StyledSelect 
               onChange={event => onFilterChange(event.target.value)} 
               value={filter}
             >
               <option value=''>Sort Price DEFAULT</option>
               <option value='asc'>Sort Price ASC</option>
               <option value='desc'>Sort Price DESC</option>
-            </select>
+            </StyledSelect>
 
             <StyledSearchInput 
               onChange={event => onSearchChange(event.target.value)}
