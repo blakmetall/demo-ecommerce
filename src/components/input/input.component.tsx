@@ -1,11 +1,10 @@
-import { Controller } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import { InputProps } from './input.model';
-import { StyledInput, StyledLabel } from './input.styled';
+import { StyledError, StyledInput, StyledLabel } from './input.styled.ts';
 
 const Input = (props: InputProps) => {
   const { 
     control, 
-    error, 
     isDisabled = false, 
     isRequired, 
     label, 
@@ -13,6 +12,12 @@ const Input = (props: InputProps) => {
     placeholder = '', 
     type = 'text' 
   } = props;
+
+  const { formState: { errors }, getFieldState } = useFormContext();
+
+  const hasError = !!errors?.[name];
+  const fieldState = hasError ? getFieldState(name) : { error: { message: '' } };
+  const errorMessage = hasError ? fieldState?.error?.message : '';
 
   const requiredClass = isRequired ? 'required ' : '';
 
@@ -32,6 +37,7 @@ const Input = (props: InputProps) => {
             return (
               <StyledInput
                 className=''
+                hasError={!!errorMessage}
                 placeholder={placeholder}
                 type={type}
                 value={inputValue}
@@ -41,7 +47,7 @@ const Input = (props: InputProps) => {
           }}
         />
 
-        {error ? <div>{error}</div> : null}
+        {errorMessage ? <StyledError>{errorMessage}</StyledError> : null}
       </div>
     </div>
   );

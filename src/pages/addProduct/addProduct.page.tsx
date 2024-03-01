@@ -1,5 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { addProduct } from '../../store/slices/products.slice.ts';
+import { addProductValidationSchema } from '../../utils/validationSchemas/addProductValidationSchema.js';
 import { Button } from 'react-rainbow-components';
 import { Input } from '../../components/input/input.component.tsx';
 import { Title } from '../../components/title/title.component.js';
@@ -15,16 +16,22 @@ export const AddProductPage = () => {
 
   const methods = useForm({
     defaultValues: {
-      description: '',
       id: '',
+      description: '',
       name: '',
-      price: 0,
+      price: 0, 
     },
     mode: 'all',
     values: {},
+    resolver: addProductValidationSchema,
   });
 
-  const { control, getValues, handleSubmit } = methods;
+  const { 
+    control, 
+    formState: { isValid }, 
+    getValues, 
+    handleSubmit,
+  } = methods;
   
   const handleOnSubmit = () => {
     const values = getValues();
@@ -68,6 +75,7 @@ export const AddProductPage = () => {
         />
 
         <Button 
+          disabled={!isValid}
           label='Save' 
           onClick={handleSubmit(handleOnSubmit)} 
         />
