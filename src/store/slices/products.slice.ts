@@ -11,6 +11,7 @@ export interface ProductProps {
 
 interface ProductsSliceProps {
   products: ProductProps[],
+  search: string;
 }
 
 const initialState: ProductsSliceProps = {
@@ -65,6 +66,7 @@ const initialState: ProductsSliceProps = {
       price: 70,
     },
   ],
+  search: '',
 };
 
 export const productsSlice = createSlice({
@@ -77,9 +79,12 @@ export const productsSlice = createSlice({
         action.payload
       ];
     },
+    setSearch: (state, action) => {
+      state.search = action.payload;
+    }
   },
 });
 
-export const { addProduct } = productsSlice.actions;
+export const { addProduct, setSearch } = productsSlice.actions;
 
 export default productsSlice.reducer;

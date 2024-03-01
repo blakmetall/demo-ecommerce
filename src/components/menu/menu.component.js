@@ -1,6 +1,6 @@
 import { StyledContainer, StyledLink, StyledMenuContainer, StyledMenuItems, StyledSearchContainer, StyledSearchInput } from './menu.styled.js';
 
-export const MenuComponent = () => {
+export const MenuComponent = ({ search, onSearchChange }) => {
   return (
     <StyledContainer>
       <StyledMenuContainer>
@@ -9,8 +9,12 @@ export const MenuComponent = () => {
           <StyledLink to="cart">Cart</StyledLink>
           <StyledLink to="add-product">Add Product</StyledLink>
         </StyledMenuItems>
+
         <StyledSearchContainer>
-          <StyledSearchInput />
+          <StyledSearchInput 
+            onChange={event => onSearchChange(event.target.value)}
+            value={search} 
+          />
         </StyledSearchContainer>
       </StyledMenuContainer>
     </StyledContainer>
