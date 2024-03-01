@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": false,
+    "jsx": "react-jsx",
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    },
+    "resolveJsonModule": true
+  },
+  "include": ["src"]
+}

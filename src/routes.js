@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { AddProductPage } from './pages/addProduct/addProduct.page';
+import { AddProductPage } from './pages/addProduct/addProduct.page.tsx';
 import { ViewProductPage } from './pages/viewProduct/viewProduct.page';
 import { CartPage } from './pages/cart/cart.page';
 import { HomePage } from './pages/home/home.page';
