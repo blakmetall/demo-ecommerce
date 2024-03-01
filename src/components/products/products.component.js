@@ -1,7 +1,7 @@
-import ProductCard from '../product-card/index.js';
+import ProductCard from '../productCard/productCard.component.js';
 import { StyledProductsContainer } from './products.styled.js';
 
-export const ProductsComponent = ({ onProductClick, onUpdateCartQuantity, products, productsInCart }) => {
+export const Products = ({ onProductClick, onUpdateCartQuantity, products, productsInCart }) => {
   const hasProducts = !!products.length;
 
   if (hasProducts) {
@@ -16,6 +16,7 @@ export const ProductsComponent = ({ onProductClick, onUpdateCartQuantity, produc
             <ProductCard 
               {...product} 
               currentQuantity={quantity}
+              key={product.id}
               onProductClick={onProductClick}
               onUpdateCartQuantity={onUpdateCartQuantity} 
             />

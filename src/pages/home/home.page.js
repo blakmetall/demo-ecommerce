@@ -1,4 +1,4 @@
-import { ProductsComponent } from '../../components/products/products.component.js';
+import { Products } from '../../components/products/products.component.js';
 import { updateProductInCart } from '../../store/slices/cart.slice.ts';
 import { useCartViewModel } from '../../store/viewModels/cart.viewModel.ts';
 import { useDispatch } from 'react-redux';
@@ -25,13 +25,11 @@ export const HomePage = () => {
   };
 
   return (
-    <div>
-      <ProductsComponent 
-        products={products} 
-        productsInCart={productsInCart}
-        onProductClick={handleOnProductClick} 
-        onUpdateCartQuantity={handleOnUpdateCartQuantity}
-      />
-    </div>
+    <Products 
+      products={products} 
+      productsInCart={productsInCart}
+      onProductClick={handleOnProductClick} 
+      onUpdateCartQuantity={handleOnUpdateCartQuantity}
+    />
   )
 };

@@ -1,14 +1,24 @@
 import { Controller } from 'react-hook-form';
 import { InputProps } from './input.model';
+import { StyledInput, StyledLabel } from './input.styled';
 
 const Input = (props: InputProps) => {
-  const { control, error, isDisabled = false, isRequired, label, name, placeholder = '', type = 'text' } = props;
+  const { 
+    control, 
+    error, 
+    isDisabled = false, 
+    isRequired, 
+    label, 
+    name, 
+    placeholder = '', 
+    type = 'text' 
+  } = props;
 
   const requiredClass = isRequired ? 'required ' : '';
 
   return (
     <div className=''>
-      {label ? <label className={`${requiredClass}`}>{label}</label> : null}
+      {label ? <StyledLabel className={`${requiredClass}`}>{label}</StyledLabel> : null}
 
       <div>
         <Controller
@@ -20,7 +30,7 @@ const Input = (props: InputProps) => {
             const inputValue = value ? value : '';
 
             return (
-              <input
+              <StyledInput
                 className=''
                 placeholder={placeholder}
                 type={type}
@@ -31,7 +41,7 @@ const Input = (props: InputProps) => {
           }}
         />
 
-        {error ? <div className='fv-help-block'>{error}</div> : null}
+        {error ? <div>{error}</div> : null}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
-import { ProductsComponent } from '../../components/products/products.component.js';
+import { Products } from '../../components/products/products.component.js';
+import { Title } from '../../components/title/title.component.js';
 import { updateProductInCart } from '../../store/slices/cart.slice.ts';
 import { useCartViewModel } from '../../store/viewModels/cart.viewModel.ts';
 import { useDispatch } from 'react-redux';
@@ -26,9 +27,9 @@ export const CartPage = () => {
 
   return (
     <div>
-      <h3>Cart</h3>
+      <Title label='Cart' />
       
-      <ProductsComponent 
+      <Products 
         products={cartProducts} 
         productsInCart={productsInCart}
         onProductClick={handleOnProductClick} 

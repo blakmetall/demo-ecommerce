@@ -1,11 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useProductViewModel } from '../../store/viewModels/product.viewModel.ts';
+
 import { 
   StyledContainer,
-  StyledContent,
   StyledDescription,
   StyledImage,
-  StyledImageContainer,
   StyledName,
   StyledPrice,
 } from './viewProduct.styled.js';
@@ -15,18 +14,19 @@ export const ViewProductPage = () => {
   const { hasProduct, product } = useProductViewModel(id);
 
   if (hasProduct) {
-    const { id, name, price, description, photo } = product;
+    const { name, price, description, photo } = product;
 
     return (
       <StyledContainer>
-        <StyledContent>
+        <div>
           <StyledName>{name}</StyledName>
           <StyledDescription>{description}</StyledDescription>
           <StyledPrice>${price.toFixed(2)}</StyledPrice>
-        </StyledContent>
-        <StyledImageContainer>
+        </div>
+
+        <div>
           <StyledImage src={photo} alt='' />
-        </StyledImageContainer>
+        </div>
       </StyledContainer>
     )
   };

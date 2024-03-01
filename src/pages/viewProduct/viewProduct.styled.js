@@ -5,9 +5,6 @@ const StyledContainer = styled.div`
   justify-content: space-between;
 `;
 
-const StyledContent = styled.div`
-`;
-
 const StyledDescription = styled.div`
   font-size: 16px;
   margin-bottom: 25px;
@@ -18,8 +15,6 @@ const StyledImage = styled.img`
   width: 100%;
   max-width: 600px;
 `;
-
-const StyledImageContainer = styled.div``;
 
 const StyledName = styled.div`
   font-weight: bold;
@@ -36,10 +31,8 @@ const StyledPrice = styled.div`
 
 export { 
   StyledContainer,
-  StyledContent,
   StyledDescription,
   StyledImage,
-  StyledImageContainer,
   StyledName,
   StyledPrice,
  };

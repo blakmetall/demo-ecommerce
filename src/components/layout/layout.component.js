@@ -1,22 +1,17 @@
-import { MenuComponent } from '../menu/menu.component';
+import { StyledContainer, StyledMain } from './layout.styled.js';
+import { Menu } from '../menu/menu.component.js';
 import { setSearch } from '../../store/slices/products.slice.ts';
-import { StyledContainer, StyledMain } from './styled';
 import { useDispatch } from 'react-redux';
 import { useProductsViewModel } from '../../store/viewModels/products.viewModel.ts';
 
 function Layout({ children }) {
   const dispatch = useDispatch();
-
   const { search } = useProductsViewModel();
-
-  const handleOnSearchChange = (newSearch) => {
-    dispatch(setSearch(newSearch));
-  };
 
   return (
     <StyledMain>
-      <MenuComponent 
-        onSearchChange={handleOnSearchChange} 
+      <Menu 
+        onSearchChange={newSearch => dispatch(setSearch(newSearch))} 
         search={search} 
       />
       

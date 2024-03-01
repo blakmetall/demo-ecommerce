@@ -4,18 +4,18 @@ import styled from 'styled-components';
 const StyledButton = styled.button``;
 
 const StyledContainer = styled.div`
-    display: flex;
+  display: flex;
 `;
 
 const StyledQuantityContainer = styled(Link)`
-    margin: 0px 0 0 10px;
-    max-width: 100px;
-    width: 100%;
+  margin: 0px 0 0 10px;
+  max-width: 100px;
+  width: 100%;
 `;
 
 const StyledQuantityInput = styled.input`
-    text-align: center;
-    max-width: 80px;
+  max-width: 80px;
+  text-align: center;
 `;
 
 export { StyledButton, StyledContainer, StyledQuantityContainer, StyledQuantityInput };

@@ -1,6 +1,13 @@
-import { StyledContainer, StyledLink, StyledMenuContainer, StyledMenuItems, StyledSearchContainer, StyledSearchInput } from './menu.styled.js';
+import { 
+  StyledContainer, 
+  StyledLink, 
+  StyledMenuContainer, 
+  StyledMenuItems, 
+  StyledSearchContainer, 
+  StyledSearchInput,
+} from './menu.styled.js';
 
-export const MenuComponent = ({ search, onSearchChange }) => {
+export const Menu = ({ search, onSearchChange }) => {
   return (
     <StyledContainer>
       <StyledMenuContainer>

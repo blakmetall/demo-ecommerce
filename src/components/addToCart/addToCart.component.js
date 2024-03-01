@@ -1,6 +1,6 @@
 import { StyledContainer, StyledQuantityContainer, StyledQuantityInput } from './addToCart.styled.js';
 
-export const AddToCartComponent = ({ currentQuantity = 0, onUpdateQuantity, productId }) => {
+export const AddToCart = ({ currentQuantity = 0, onUpdateQuantity, productId }) => {
   const handleOnClick = (event, newQuantity) => {
     event.preventDefault();
     event.stopPropagation();

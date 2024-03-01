@@ -9,8 +9,8 @@ const StyledContainer = styled.div`
 const StyledMain = styled.div`
    background: #f4f6f9;
    border-top: 5px solid #03b6f5;
-   width: 100%;
    min-height: 100vh;
+   width: 100%;
 `;
 
 export { StyledContainer, StyledMain };

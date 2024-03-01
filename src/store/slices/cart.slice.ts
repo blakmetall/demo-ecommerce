@@ -1,29 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { cartDummyData } from './dummyData';
 
 interface CartProductProps {
   id: number;
   quantity: number;
 }
 
-export interface CartSliceProps {
+interface CartSliceProps {
   productsInCart: CartProductProps[],
 }
 
 const initialState: CartSliceProps = {
-  productsInCart: [
-    {
-      id: 1,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      quantity: 3,
-    },
-    {
-      id: 4,
-      quantity: 2,
-    },
-  ],
+  productsInCart: cartDummyData,
 };
 
 export const cartSlice = createSlice({
@@ -61,13 +49,9 @@ export const cartSlice = createSlice({
         ];
       }  
     },
-
-    removeProductFromCart: (state, action) => {
-      state.productsInCart = state.productsInCart.filter(productId => productId !== action.payload);
-    },
   },
 });
 
-export const { addProductToCart, removeProductFromCart, updateProductInCart } = cartSlice.actions;
+export const { addProductToCart, updateProductInCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
