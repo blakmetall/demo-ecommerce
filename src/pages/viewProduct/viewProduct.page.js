@@ -1,13 +1,35 @@
-import { useCartViewModel } from '../../store/viewModels/cart.viewModel.ts';
-import { useProductsViewModel } from '../../store/viewModels/products.viewModel.ts';
+import { useParams } from 'react-router-dom';
+import { useProductViewModel } from '../../store/viewModels/product.viewModel.ts';
+import { 
+  StyledContainer,
+  StyledContent,
+  StyledDescription,
+  StyledImage,
+  StyledImageContainer,
+  StyledName,
+  StyledPrice,
+} from './viewProduct.styled.js';
 
 export const ViewProductPage = () => {
-  // const { products } = useProductsViewModel();
-  // const { cartProducts } = useCartViewModel(products);
+  const { id } = useParams();
+  const { hasProduct, product } = useProductViewModel(id);
 
-  return (
-    <div>
-      <h3>View product</h3>
-    </div>
-  )
+  if (hasProduct) {
+    const { id, name, price, description, photo } = product;
+
+    return (
+      <StyledContainer>
+        <StyledContent>
+          <StyledName>{name}</StyledName>
+          <StyledDescription>{description}</StyledDescription>
+          <StyledPrice>${price.toFixed(2)}</StyledPrice>
+        </StyledContent>
+        <StyledImageContainer>
+          <StyledImage src={photo} alt='' />
+        </StyledImageContainer>
+      </StyledContainer>
+    )
+  };
+
+  return <div><h3>Product not found.</h3></div>
 };

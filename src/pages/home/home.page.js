@@ -9,7 +9,7 @@ export const HomePage = () => {
 
   const handleOnProductClick = (productId, event) => {
     event.preventDefault();
-    navigate('/view-product')
+    navigate(`/view-product/${productId}`)
   };
 
   return (

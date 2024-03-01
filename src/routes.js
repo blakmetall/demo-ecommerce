@@ -11,7 +11,7 @@ const AppRoutes = () => {
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/cart" element={<CartPage />} />
             <Route exact path="/add-product" element={<AddProductPage />} />
-            <Route exact path="/view-product" element={<ViewProductPage />} />
+            <Route exact path="/view-product/:id" element={<ViewProductPage />} />
             <Route path="*" element={<HomePage />} />
         </Routes>
     );
