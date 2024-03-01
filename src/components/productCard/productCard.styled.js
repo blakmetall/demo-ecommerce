@@ -28,10 +28,15 @@ const StyledPrice = styled.div`
   margin-bottom: 15px;
 `;
 
+const StyledPriceInCart = styled.span`
+  color: #333;
+  padding-left: 5px;
+`;
+
 const StyledPhoto = styled.img`
   border-radius: 10px;
   margin-bottom: 15px;
   width: 100%;
 `;
 
-export { StyledCard, StyledName, StyledDescription, StyledPrice, StyledPhoto };
+export { StyledCard, StyledName, StyledDescription, StyledPrice, StyledPriceInCart, StyledPhoto };

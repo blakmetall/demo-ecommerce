@@ -1,5 +1,5 @@
 import { AddToCart } from '../addToCart/addToCart.component';
-import { StyledCard, StyledDescription, StyledName, StyledPhoto, StyledPrice } from './productCard.styled';
+import { StyledCard, StyledDescription, StyledName, StyledPhoto, StyledPrice, StyledPriceInCart } from './productCard.styled';
 
 function ProductCard(props) {
   const { 
@@ -12,6 +12,7 @@ function ProductCard(props) {
     onProductClick, 
     onUpdateCartQuantity, 
   } = props;
+  const itemSubtotal = price * currentQuantity;
 
   return (
     <StyledCard>
@@ -19,7 +20,15 @@ function ProductCard(props) {
         <StyledPhoto src={photo} alt='' />
         <StyledName>{name}</StyledName>
         <StyledDescription>{description}</StyledDescription>
-        <StyledPrice>${price.toFixed(2)}</StyledPrice>
+        <StyledPrice>
+          ${price.toFixed(2)}
+          
+          {currentQuantity > 0 ? (
+            <StyledPriceInCart>
+              / ${itemSubtotal.toFixed(2)}
+            </StyledPriceInCart>
+          ) : null}
+        </StyledPrice>
 
         <AddToCart 
           currentQuantity={currentQuantity} 

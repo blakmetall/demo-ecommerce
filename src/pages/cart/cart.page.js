@@ -1,4 +1,5 @@
 import { Products } from '../../components/products/products.component.js';
+import { StyledSeparator, StyledSubtotal } from './cart.styled.js';
 import { Title } from '../../components/title/title.component.js';
 import { updateProductInCart } from '../../store/slices/cart.slice.ts';
 import { useCartViewModel } from '../../store/viewModels/cart.viewModel.ts';
@@ -11,7 +12,7 @@ export const CartPage = () => {
   const navigate = useNavigate();
 
   const { products } = useProductsViewModel();
-  const { cartProducts, productsInCart } = useCartViewModel(products);
+  const { cartProducts, cartSubtotal, hasProductsInCart, productsInCart } = useCartViewModel(products);
 
   const handleOnProductClick = (productId, event) => {
     event.preventDefault();
@@ -29,6 +30,15 @@ export const CartPage = () => {
     <div>
       <Title label='Cart' />
       
+      {hasProductsInCart ? 
+        <>
+          <StyledSubtotal>Total in cart: ${cartSubtotal.toFixed(2)}</StyledSubtotal>
+    
+          <StyledSeparator />
+          <StyledSeparator />
+        </> : null
+      }
+
       <Products 
         products={cartProducts} 
         productsInCart={productsInCart}

@@ -12,8 +12,16 @@ export const useCartViewModel = (storeProducts: ProductProps[] = []) => {
       return { ...product, quantity };
     });
 
+  const cartSubtotal = cartProducts.reduce((sum, product) => {
+    const itemSubtotal = product.quantity * product.price;
+
+    return sum + itemSubtotal;
+  }, 0);
+
   return {
     cartProducts,
+    cartSubtotal,
+    hasProductsInCart: Boolean(cartProducts.length),
     productsInCart,
   };
 };
