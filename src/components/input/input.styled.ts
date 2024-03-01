@@ -3,11 +3,14 @@ import styled from 'styled-components';
 const StyledError = styled.div`
   color: red;
   font-size: 12px;
-  margin-bottom: 20px;
 `;
 
-const StyledInput = styled.input<{ hasError?: boolean }>`
-  margin-bottom: ${props => !props.hasError ? '20px' : '5px'};
+const StyledInput = styled.input`
+  margin-bottom: 5px;
+`;
+
+const StyledInputContainer = styled.div`
+  margin-bottom: 20px;
 `;
 
 const StyledLabel = styled.label`
@@ -17,4 +20,4 @@ const StyledLabel = styled.label`
 `;
 
 
-export { StyledInput, StyledError, StyledLabel };
+export { StyledInput, StyledInputContainer, StyledError, StyledLabel };

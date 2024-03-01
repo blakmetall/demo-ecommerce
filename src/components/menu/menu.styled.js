@@ -29,6 +29,7 @@ const StyledSearchContainer = styled.div`
 `;
 
 const StyledSearchInput = styled.input`
+  margin-left: 10px;
 `;
 
 export { 

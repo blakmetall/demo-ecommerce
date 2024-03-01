@@ -1,9 +1,13 @@
 import { StyledContainer, StyledQuantityInput } from './addToCart.styled.js';
 
 export const AddToCart = ({ currentQuantity = 0, onUpdateQuantity, productId }) => {
-  const handleOnClick = (event, newQuantity) => {
+  const preventDefault = (event) => {
     event.preventDefault();
     event.stopPropagation();
+  };
+
+  const handleOnClick = (event, newQuantity) => {
+    preventDefault(event);
 
     const cartNewQuantity = newQuantity < 0 ? 0 : newQuantity;
 
@@ -14,7 +18,11 @@ export const AddToCart = ({ currentQuantity = 0, onUpdateQuantity, productId }) 
     <StyledContainer>
       <button onClick={(event) => handleOnClick(event, currentQuantity - 1)}>-</button>
 
-      <StyledQuantityInput value={currentQuantity} readOnly />
+      <StyledQuantityInput 
+        onClick={(event) => preventDefault(event)}
+        readOnly 
+        value={currentQuantity} 
+      />
 
       <button onClick={(event) => handleOnClick(event, currentQuantity + 1)}>+</button>
     </StyledContainer>

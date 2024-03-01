@@ -26,28 +26,36 @@ export const cartSlice = createSlice({
     },
 
     updateProductInCart: (state, action: any) => {
-      const item = state.productsInCart.find(({ id }) => action.payload.id === id);
-      const inCart = !!item;
+      const productId = action.payload.id;
+      const newQuantity = action.payload.quantity;
 
-      if (inCart) {
-        state.productsInCart = state.productsInCart.map(item => {
-          const shouldUpdateQuantity = item.id === action.payload.id;
-
-          if (shouldUpdateQuantity) {
-            return {...item, quantity: action.payload.quantity};
-          }
-
-          return item;
-        });
+      if (newQuantity < 0) {
+        state.productsInCart = state.productsInCart.filter(({ id }) => productId === id);
       } else {
-        state.productsInCart = [
-          ...state.productsInCart,
-          {
-            id: action.payload.id,
-            quantity: action.payload.quantity,
-          }
-        ];
-      }  
+        const item = state.productsInCart.find(({ id }) => productId === id);
+        const inCart = !!item;
+  
+        if (inCart) {
+          state.productsInCart = state.productsInCart.map(item => {
+            const shouldUpdateQuantity = item.id === productId;
+  
+            if (shouldUpdateQuantity) {
+              return {...item, quantity: newQuantity};
+            }
+  
+            return item;
+          });
+        } else {
+          state.productsInCart = [
+            ...state.productsInCart,
+            {
+              id: productId,
+              quantity: newQuantity,
+            }
+          ];
+        }  
+      }
+
     },
   },
 });

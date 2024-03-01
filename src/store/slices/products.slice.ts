@@ -11,11 +11,13 @@ export interface ProductProps {
 }
 
 interface ProductsSliceProps {
+  filter: string;
   products: ProductProps[],
   search: string;
 }
 
 const initialState: ProductsSliceProps = {
+  filter: '',
   products: productsDummyData,
   search: '',
 };
@@ -30,12 +32,15 @@ export const productsSlice = createSlice({
         action.payload
       ];
     },
+    setFilter: (state, action) => {
+      state.filter = action.payload;
+    },
     setSearch: (state, action) => {
       state.search = action.payload;
-    }
+    },
   },
 });
 
-export const { addProduct, setSearch } = productsSlice.actions;
+export const { addProduct, setFilter, setSearch } = productsSlice.actions;
 
 export default productsSlice.reducer;

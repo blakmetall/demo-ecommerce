@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { InputProps } from './input.model';
-import { StyledError, StyledInput, StyledLabel } from './input.styled.ts';
+import { StyledError, StyledInput, StyledInputContainer, StyledLabel } from './input.styled.ts';
 
 const Input = (props: InputProps) => {
   const { 
@@ -22,7 +22,7 @@ const Input = (props: InputProps) => {
   const requiredClass = isRequired ? 'required ' : '';
 
   return (
-    <div className=''>
+    <StyledInputContainer>
       {label ? <StyledLabel className={`${requiredClass}`}>{label}</StyledLabel> : null}
 
       <div>
@@ -37,7 +37,6 @@ const Input = (props: InputProps) => {
             return (
               <StyledInput
                 className=''
-                hasError={!!errorMessage}
                 placeholder={placeholder}
                 type={type}
                 value={inputValue}
@@ -49,7 +48,7 @@ const Input = (props: InputProps) => {
 
         {errorMessage ? <StyledError>{errorMessage}</StyledError> : null}
       </div>
-    </div>
+    </StyledInputContainer>
   );
 };
 

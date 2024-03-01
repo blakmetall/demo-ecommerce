@@ -9,8 +9,8 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
-  const { products } = useProductsViewModel();
-  const { productsInCart } = useCartViewModel(products);
+  const { filteredProducts } = useProductsViewModel();
+  const { productsInCart } = useCartViewModel(filteredProducts);
 
   const handleOnProductClick = (productId, event) => {
     event.preventDefault();
@@ -26,7 +26,7 @@ export const HomePage = () => {
 
   return (
     <Products 
-      products={products} 
+      products={filteredProducts} 
       productsInCart={productsInCart}
       onProductClick={handleOnProductClick} 
       onUpdateCartQuantity={handleOnUpdateCartQuantity}

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { RootState } from '../store';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
@@ -5,10 +6,16 @@ import { useSelector } from 'react-redux';
 export const useProductsViewModel = () => {
   const products = useSelector((state: RootState) => state.products.products);
   const search = useSelector((state: RootState) => state.products.search);
+  const filter = useSelector((state: RootState) => state.products.filter);
 
-  const filteredProducts = !!search 
-    ? products.filter(product => product.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1) 
-    : products;
+  const displayProducts = 
+    !!search 
+      ? products.filter(product => product.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1) 
+      : products;
+
+  const filteredProducts = filter !== '' 
+    ? _.orderBy(displayProducts, ['price'], [filter])
+    : displayProducts;
 
   const largestId = useMemo(() => {
     return products.length ? products.reduce((largestId, product) => {
@@ -19,7 +26,8 @@ export const useProductsViewModel = () => {
   return {
     largestId,
     nextId: largestId + 1,
-    products: filteredProducts,
+    products,
+    filteredProducts,
     search,
   };
 };
